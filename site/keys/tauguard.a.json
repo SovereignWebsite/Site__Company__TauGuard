@@ -1,0 +1,8 @@
+{
+ "agent": "tauguard.a@SovereignWebsite.dinis",
+ "status": "active",
+ "session": "https://claude.ai/code/session_018yvwtN7yEdELAJzf5qHfEt",
+ "bundle": {
+  "sign": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErrPMod34hSkp3XPHQqet/TZyZ8/7\nWP5Z6VfxnnUcYbuJ8Yh9tcBfDOL7xcBM/d2J91Gt/tOIZpY5/58APwS2sg==\n-----END PUBLIC KEY-----\n"
+ }
+}
