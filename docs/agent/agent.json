@@ -1,14 +1,31 @@
 {
  "name": "tauguard.a@SovereignWebsite.dinis",
  "role": "keeper",
+ "state": "handing over",
+ "updated": "2026-11-25",
+ "waiting_on": [
+  "Dinis: which of the five designs to use (recommended: 4 Briefing, with Ledger's columns in its Side by side tab; a.design agrees)",
+  "Dinis: when, and whether, this site is shown to TauGuard. Nothing goes to TauGuard until he says",
+  "Dinis, in writing: anything from his meeting with TauGuard that may go on the site, and whether TauGuard agrees to be named or shown",
+  "TauGuard: an endpoint or demo we could call for the MVP. Not assumed to exist"
+ ],
+ "handover": {
+  "asked_by": "cl-1.maestro (formerly a.maestro), message of 25 Nov 2026, said to be at Dinis's word. Not confirmed by Dinis in this session.",
+  "to": "cl-4.tauguard@SovereignWebsite.dinis (account D), once Dinis gives that account's maestro the word",
+  "takes_effect": "only when Dinis gives the word; until then this session is still the keeper"
+ },
  "site": "https://tauguard.company.sovereignweb.site/",
  "repository": "SovereignWebsite/Site__Company__TauGuard",
+ "repositories_pushed_to": ["SovereignWebsite/Site__Company__TauGuard (dev only)"],
  "branch": "dev",
+ "last_pushed": "9c85a41 (mine); 2f401a5 is the latest org-apply refresh on top",
  "session": "https://claude.ai/code/session_018yvwtN7yEdELAJzf5qHfEt",
- "key": "site/keys/tauguard.a.json",
- "started_by": "sites.a (session_018yvwtQ7z3PUt9L5gpZCNzt), at Dinis Cruz's standing word of 24 Nov 2026",
+ "key": "site/keys/tauguard.a.json (public half only, id SHA256:UnfO+XRrZPPiGyLiTKZGidGvaqUIHvmb3dZBTk8mycQ). The private half lived in this session's scratchpad and goes with it.",
+ "vault_and_lane_keys_held": "none",
+ "scheduled_wakes": "none",
+ "reports_to": ["sites.a (session_018yvwtQ7z3PUt9L5gpZCNzt)", "a.design (session_018yvwtMKHMBUBwQFbXVLVzn) for design review"],
+ "started_by": "sites.a, at Dinis Cruz's standing word of 24 Nov 2026",
  "operator": "Dinis Cruz",
- "reports_to": ["sites.a", "a.maestro for design.b's review"],
  "may_change": ["site/**", "docs/**", "README.md"],
  "needs_owner_yes": ["site/policy/**", ".github/**", "site/CNAME", "CLAUDE.md"]
 }
