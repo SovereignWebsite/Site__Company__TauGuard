@@ -1,0 +1,14 @@
+{
+ "name": "tauguard.a@SovereignWebsite.dinis",
+ "role": "keeper",
+ "site": "https://tauguard.company.sovereignweb.site/",
+ "repository": "SovereignWebsite/Site__Company__TauGuard",
+ "branch": "dev",
+ "session": "https://claude.ai/code/session_018yvwtN7yEdELAJzf5qHfEt",
+ "key": "site/keys/tauguard.a.json",
+ "started_by": "sites.a (session_018yvwtQ7z3PUt9L5gpZCNzt), at Dinis Cruz's standing word of 24 Nov 2026",
+ "operator": "Dinis Cruz",
+ "reports_to": ["sites.a", "a.maestro for design.b's review"],
+ "may_change": ["site/**", "docs/**", "README.md"],
+ "needs_owner_yes": ["site/policy/**", ".github/**", "site/CNAME", "CLAUDE.md"]
+}

@@ -355,20 +355,32 @@ def nxt():
     return page("/next/", "What next", "TauGuard's own path from introduction to scale, taken from its partners page, and where a Sovereign Website and RiskMandate proposal could fit.", body, mark="Next")
 
 
-def designs_stub():
-    body = """<h1>Design directions</h1>
-<p class="lede">The design of this site is not yet chosen. Five structural directions are being drawn and reviewed. Until the owner picks one, every page uses the first, a plain paper design.</p>
-<p>This page will list them.</p>"""
-    return page("/designs/", "Design directions", "Design directions for this proposal site: the live pages use one design until the owner picks.", body, mark="Design")
+def designs_index():
+    ds = [(1, "Paper", "The live design. One page per topic, a top bar, long-form reading with diagrams in the flow.", "Best for one answer at a time, and for printing or linking a single page. Weakest at showing the whole proposal at once."),
+          (2, "Atlas", "The whole proposal on one scrolling page with a sticky index on the left.", "Best for seeing how the parts connect and for searching with the browser. Weakest on a phone, where the index folds away, and for linking to one topic."),
+          (3, "Ledger", "TauGuard on the left, RiskMandate on the right, a red boundary line between them, and the joint material below it.", "Best for showing the idea of the whole proposal in the layout itself. Weakest where long diagrams must fit half a page."),
+          (4, "Briefing", "A short opening, then five tabs, one topic showing at a time. No script: the tabs are plain form controls and CSS.", "Best for a visitor with five minutes who wants to choose. Weakest for printing and for search, since hidden tabs are not on the page."),
+          (5, "Blueprint", "Dark, monospaced, drawn like a set of engineering sheets with an index of tiles and a title block on each sheet.", "Best for a technical reader and for making the diagrams the centre. Weakest for long reading, and furthest from TauGuard's own look, which we are not copying.")]
+    cards = "".join(f'<div class="card both"><span class="tag okt">{"Live now" if n == 1 else "Prototype"}</span><h2>{n}. {nme}</h2><p>{d}</p><p>{c}</p><p><a href="/designs/{n}/">Open design {n}</a></p></div>' for n, nme, d, c in ds)
+    body = f"""<h1>Design directions</h1>
+<p class="lede">Five structural directions for this site. They differ in how the content is arranged and navigated, not only in colour. Every prototype carries the same content as the live pages.</p>
+<p>The live pages stay on design 1 until the owner picks. Review round 1 is open: sites.a and design.b (through a.maestro) are asked to look at all five. A recommendation follows the second round.</p>
+<div class="grid">{cards}</div>
+<h2>What each review looks at</h2>
+<ul><li>Does the structure make the proposal easier or harder to take in?</li><li>Do the diagrams stay legible on a phone?</li><li>Is the "not TauGuard's own site" notice still plain?</li><li>Does it avoid copying TauGuard's look, logo or branding?</li><li>Does it pass the pipeline's accessibility and validity checks?</li></ul>
+<p>Recommendation: none yet.</p>"""
+    return page("/designs/", "Design directions", "Five structural design directions for this proposal site. The live pages use one until the owner picks.", body, mark="Design")
 
 
 if __name__ == "__main__":
     os.makedirs(os.path.join(ROOT, "site", "assets"), exist_ok=True)
     open(os.path.join(ROOT, "site", "assets", "site.css"), "w").write(CSS)
     for path, fn in [("/", home), ("/tauguard/", tauguard), ("/architecture/", architecture), ("/riskmandate/", riskmandate), ("/together/", together),
-                     ("/workflows/", workflows), ("/mvp/", mvp), ("/next/", nxt), ("/designs/", designs_stub)]:
+                     ("/workflows/", workflows), ("/mvp/", mvp), ("/next/", nxt), ("/designs/", designs_index)]:
         out = fn()
         if re.search("[—–]|&mdash;|&ndash;", out):
             raise SystemExit(f"dash in {path}")
         write(path, out)
         print("wrote", path, len(out))
+    import designs
+    designs.build_designs()
