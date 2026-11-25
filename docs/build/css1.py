@@ -45,7 +45,8 @@ footer{max-width:60rem;margin:3rem auto 0;padding:1rem 1rem 0;border-top:1px sol
 .stat{font-size:2.2rem;font-weight:700;color:var(--rm);line-height:1.1;display:block}
 .tw{overflow-x:auto;margin:1rem 0}table{border-collapse:collapse;width:100%;font-size:.95rem}
 th,td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top;color:var(--fg)}th{background:var(--panel)}
-.fig{margin:1.5rem 0}.fig svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.fig{margin:1.5rem 0;overflow-x:auto}.fig:focus-visible,.tw:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:48rem){.fig svg{min-width:760px}}.fig svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
 .fig figcaption{font-size:.85rem;color:var(--muted);margin-top:.4rem}
 svg text{fill:var(--fg);font-family:system-ui,-apple-system,Segoe UI,sans-serif}svg text.b{font-weight:700}svg text.s{fill:var(--muted)}
 svg .n rect{fill:var(--panel);stroke:var(--muted);stroke-width:1.2}

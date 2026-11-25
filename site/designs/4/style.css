@@ -44,7 +44,8 @@ footer{max-width:60rem;margin:3rem auto 0;padding:1rem 1rem 0;border-top:1px sol
 .stat{font-size:2.2rem;font-weight:700;color:var(--rm);line-height:1.1;display:block}
 .tw{overflow-x:auto;margin:1rem 0}table{border-collapse:collapse;width:100%;font-size:.95rem}
 th,td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top;color:var(--fg)}th{background:var(--panel)}
-.fig{margin:1.5rem 0}.fig svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.fig{margin:1.5rem 0;overflow-x:auto}.fig:focus-visible,.tw:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:48rem){.fig svg{min-width:760px}}.fig svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
 .fig figcaption{font-size:.85rem;color:var(--muted);margin-top:.4rem}
 svg text{fill:var(--fg);font-family:system-ui,-apple-system,Segoe UI,sans-serif}svg text.b{font-weight:700}svg text.s{fill:var(--muted)}
 svg .n rect{fill:var(--panel);stroke:var(--muted);stroke-width:1.2}
@@ -59,16 +60,17 @@ footer a,footer p{overflow-wrap:anywhere}code{font-size:.9em}main a,main code{ov
 .cols{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
 @media (max-width:599px){footer,.family-credit,.site-links{font-size:15px}.notice{font-size:15px}}
 
-.dnote{background:var(--panel);border:1px dashed var(--muted);border-radius:6px;padding:.5rem .8rem;font-size:.9rem;color:var(--fg)}
+.notice .dn{display:block;color:var(--muted);font-size:.85em;margin-top:.15rem}
+@media (max-width:40rem){.notice{padding:.4rem .7rem;font-size:14px}.notice .dn{display:inline;margin-left:.3rem}}
 section.sec{scroll-margin-top:1rem}
 :root{--accent:#6a3d9a}
 @media (prefers-color-scheme:dark){:root{--accent:#c9a6ec}}
 .tabs>input{position:absolute;opacity:0;pointer-events:none}
-.tabbar{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.5rem 0 0;border-bottom:2px solid var(--line)}
-.tabbar label{padding:.55rem 1rem;border:1px solid var(--line);border-bottom:0;border-radius:8px 8px 0 0;cursor:pointer;color:var(--accent);font-weight:600;background:var(--panel)}
+.tabbar{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:.4rem;margin:1rem 0 0;border-bottom:2px solid var(--line)}
+.tabbar label{white-space:nowrap;flex:0 0 auto;padding:.55rem 1rem;border:1px solid var(--line);border-bottom:0;border-radius:8px 8px 0 0;cursor:pointer;color:var(--accent);font-weight:600;background:var(--panel)}
 .tabbar label:hover{background:var(--bg)}
 .panels>.panel{display:none;padding-top:.5rem}
-#tab1:checked~.panels #p1,#tab2:checked~.panels #p2,#tab3:checked~.panels #p3,#tab4:checked~.panels #p4,#tab5:checked~.panels #p5{display:block}
-#tab1:checked~.tabbar label[for=tab1],#tab2:checked~.tabbar label[for=tab2],#tab3:checked~.tabbar label[for=tab3],#tab4:checked~.tabbar label[for=tab4],#tab5:checked~.tabbar label[for=tab5]{background:var(--bg);color:var(--fg);border-color:var(--accent);border-bottom:2px solid var(--bg);margin-bottom:-2px}
-#tab1:focus-visible~.tabbar label[for=tab1],#tab2:focus-visible~.tabbar label[for=tab2],#tab3:focus-visible~.tabbar label[for=tab3],#tab4:focus-visible~.tabbar label[for=tab4],#tab5:focus-visible~.tabbar label[for=tab5]{outline:3px solid var(--accent);outline-offset:2px}
-.intro{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:.2rem 1.2rem 0}
+#tab1:checked~.panels #p1,#tab2:checked~.panels #p2,#tab3:checked~.panels #p3,#tab4:checked~.panels #p4,#tab5:checked~.panels #p5,#tab6:checked~.panels #p6{display:block}
+#tab6:checked~.tabbar label[for=tab6],#tab1:checked~.tabbar label[for=tab1],#tab2:checked~.tabbar label[for=tab2],#tab3:checked~.tabbar label[for=tab3],#tab4:checked~.tabbar label[for=tab4],#tab5:checked~.tabbar label[for=tab5]{background:var(--bg);color:var(--fg);border-color:var(--accent);border-bottom:2px solid var(--bg);margin-bottom:-2px}
+#tab6:focus-visible~.tabbar label[for=tab6],#tab1:focus-visible~.tabbar label[for=tab1],#tab2:focus-visible~.tabbar label[for=tab2],#tab3:focus-visible~.tabbar label[for=tab3],#tab4:focus-visible~.tabbar label[for=tab4],#tab5:focus-visible~.tabbar label[for=tab5]{outline:3px solid var(--accent);outline-offset:2px}
+.intro h1{margin-bottom:.4rem}.intro .lede{margin-bottom:.4rem}

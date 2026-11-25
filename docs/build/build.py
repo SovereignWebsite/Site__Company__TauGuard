@@ -418,11 +418,11 @@ def designs_index():
     cards = "".join(f'<div class="card both"><span class="tag okt">{"Live now" if n == 1 else "Prototype"}</span><h2>{n}. {nme}</h2><p>{d}</p><p>{c}</p><p><a href="/designs/{n}/">Open design {n}</a></p></div>' for n, nme, d, c in ds)
     body = f"""<h1>Design directions</h1>
 <p class="lede">Five structural directions for this site. They differ in how the content is arranged and navigated, not only in colour. Every prototype carries the same content as the live pages.</p>
-<p>The live pages stay on design 1 until the owner picks. Review round 1 is open: the Sovereign Website sites team and its design reviewer are asked to look at all five. A recommendation follows the second round.</p>
+<p>The live pages stay on design 1 until the owner picks. Round 1 was reviewed by the Sovereign Website design reviewer, who recommended Briefing. Round 2 is up: every prototype now has one merged notice line, diagrams that scroll sideways at phone width, readable dark mode, and Briefing's tabs sit directly under the first paragraph. Round 2 is with the reviewer now.</p>
 <div class="grid">{cards}</div>
 <h2>What each review looks at</h2>
 <ul><li>Does the structure make the proposal easier or harder to take in?</li><li>Do the diagrams stay legible on a phone?</li><li>Is the "not TauGuard's own site" notice still plain?</li><li>Does it avoid copying TauGuard's look, logo or branding?</li><li>Does it pass the pipeline's accessibility and validity checks?</li></ul>
-<p>Recommendation: none yet.</p>"""
+<h2>Recommendation (provisional)</h2><p>Briefing, with Ledger's two columns inside its Side by side tab. It lets a first-time reader choose a topic in the first screen, and the two-column idea suits the one place where the two companies meet. Its cost is that hidden tabs are not on the page for printing or for the browser's search. The owner picks.</p>"""
     return page("/designs/", "Design directions", "Five structural design directions for this proposal site. The live pages use one until the owner picks.", body, mark="Design")
 
 

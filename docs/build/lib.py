@@ -160,7 +160,7 @@ class Svg:
         svg = (f'<svg viewBox="0 0 {self.w} {self.h}" role="img" aria-labelledby="t{self.n} d{self.n}" xmlns="http://www.w3.org/2000/svg">'
                f'<title id="t{self.n}">{html.escape(self.title)}</title><desc id="d{self.n}">{html.escape(self.desc)}</desc>{defs}{"".join(self.parts)}</svg>')
         cap = f"<figcaption>{caption}</figcaption>" if caption else ""
-        return f'<figure class="fig">{svg}{cap}</figure>'
+        return f'<figure class="fig" tabindex="0" aria-label="{html.escape(self.title)}. On a narrow screen this diagram scrolls sideways.">{svg}{cap}</figure>'
 
 
 def flow(title, desc, steps, cls_for=None, w=900, size=12, caption="", h=None):
@@ -182,10 +182,14 @@ def flow(title, desc, steps, cls_for=None, w=900, size=12, caption="", h=None):
     return s.render(caption)
 
 
+_T = [0]
+
+
 def table(rows, head_cells, cls="tbl"):
+    _T[0] += 1
     th = "".join(f"<th scope=\"col\">{c}</th>" for c in head_cells)
     tr = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows)
-    return f'<div class="tw"><table class="{cls}"><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table></div>'
+    return f'<div class="tw" tabindex="0" role="region" aria-label="Table {_T[0]}. On a narrow screen it scrolls sideways."><table class="{cls}"><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table></div>'
 
 
 PROPOSAL = '<span class="tag prop">Proposal</span>'
