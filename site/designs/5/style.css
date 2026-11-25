@@ -63,7 +63,7 @@ footer a,footer p{overflow-wrap:anywhere}code{font-size:.9em}main a,main code{ov
 .notice .dn{display:block;color:var(--muted);font-size:.85em;margin-top:.15rem}
 @media (max-width:40rem){.notice{padding:.4rem .7rem;font-size:14px}.notice .dn{display:inline;margin-left:.3rem}}
 section.sec{scroll-margin-top:1rem}
-:root{--bg:#0d1b2a;--fg:#e8f1f8;--muted:#a9c0d3;--accent:#6fd3ff;--line:#2a4a66;--panel:#12263a;--tg:#7fc4ff;--tg-bg:#14304a;--rm:#ffc56b;--rm-bg:#3a2d12;--ok:#8be0b0;--ok-bg:#14392b;--warn:#ff9a92;--warn-bg:#3d1c1e;--rev:#ffe08a;--rev-bg:#38300f}
+:root{--bg:#17181a;--fg:#eceff1;--muted:#b4babf;--accent:#f4f4f4;--line:#3a3d42;--panel:#212326;--tg:#9fc2ff;--tg-bg:#232b38;--rm:#e0b070;--rm-bg:#34291b;--ok:#9ad6b4;--ok-bg:#1f3028;--warn:#ff9a92;--warn-bg:#3a2224;--rev:#e8d28a;--rev-bg:#322d1a}
 body{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:16px;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:32px 32px;background-position:-1px -1px}
 body>*{position:relative}
 h1,h2,h3{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.04em}h1{font-size:clamp(1.6rem,5vw,2.4rem)}h2{font-size:1.2rem}h3{font-size:1rem}
@@ -74,7 +74,7 @@ main,.top{max-width:70rem}
 .tiles a{display:block;border:1px solid var(--accent);padding:.6rem .8rem;background:var(--panel);text-decoration:none;font-weight:700;color:var(--fg)}
 .tiles a span{display:block;color:var(--accent);font-size:.8rem}
 .tiles a:hover,.tiles a:focus-visible{background:var(--accent);color:var(--bg)}.tiles a:hover span,.tiles a:focus-visible span{color:var(--bg)}
-.sheet{border:2px solid var(--accent);background:rgba(13,27,42,.92);margin:2rem 0;padding:1rem 1.2rem 0;position:relative}
+.sheet{border:2px solid var(--accent);background:rgba(23,24,26,.94);margin:2rem 0;padding:1rem 1.2rem 0;position:relative}
 .sheet .tb{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--accent);margin:1.2rem -1.2rem 0;padding:.4rem 1.2rem;font-size:.8rem;color:var(--muted)}
 .card,.prop-box,.fig svg,table{border-radius:0}.fig svg{background:var(--bg)}
 footer,.family-credit{font-family:system-ui,sans-serif}
