@@ -153,8 +153,16 @@ def architecture():
     e = flow("TauDIL GOS: intelligence governance flow", "Intelligence input, then semantic coherence, then SYGON, then semantic drift.",
              [["Intelligence input", "~signals, context,", "~model output"], ["Semantic coherence", "~does meaning stay", "~inside governed bounds"], ["SYGON", "~integrated semantic", "~governance capability"], ["Semantic drift", "~meaningful movement", "~from governed state"]],
              cls_for={1: "tg", 2: "tg", 3: "rv"}, h=120)
+    f7 = Svg(900, 440, "IFA's seven-layer constitutional stack", "Seven layers, top to bottom: probabilistic intelligence systems, semantic governance with SYGON, admissibility verification with AGL, a deterministic rule engine, execution authorisation with IEL, an immutable chronicle layer, and the IFA constitutional core.")
+    lay = [("1 Probabilistic intelligence systems", "LLMs, ML models, autonomous agents", "n"), ("2 Semantic governance layer", "SYGON: coherence, drift, knowledge integrity", "tg"),
+           ("3 Admissibility verification", "AGL: ALLOW, RESTRICT, DEFER or BLOCK", "tg"), ("4 Deterministic rule engine", "assessment rules and AI governance rules", "tg"),
+           ("5 Execution authorisation", "IEL: authority chains, Merkle proof", "wn"), ("6 Immutable chronicle layer", "append-only, tamper-evident record", "ok"),
+           ("7 Constitutional core", "IFA: the invariant foundation", "ok")]
+    for i, (t, sub, col) in enumerate(lay):
+        f7.box(10, 8 + i * 61, 880, 50, [t], cls=col, size=14, sub=[sub])
+        if i < 6: f7.arrow(450, 59 + i * 61, 450, 68 + i * 61)
     body = f"""<h1>Their architecture, drawn</h1>
-<p class="lede">Five of TauGuard's own designs as diagrams. The words in the boxes are theirs; the drawings are ours, so check each against its source before relying on it.</p>
+<p class="lede">Six of TauGuard's own designs as diagrams. The words in the boxes are theirs; the drawings are ours, so check each against its source before relying on it.</p>
 <h2>1. The governance flow</h2>
 <p>TauGuard says every execution request "passes through a deterministic verification path": input (request, identity, context, evidence), meaning (governed semantic interpretation), evaluation (constitutional predicates execute), admissibility (authority and constraints verified), decision, and chronicle (evidence and lineage committed).</p>
 {a.render("The governance flow.")}{cite('governance')}
@@ -170,6 +178,10 @@ def architecture():
 <h2>5. TauDIL's flow</h2>
 <p>TauDIL separates generating intelligence from evaluating it. SYGON is "integrated into TauDIL GOS as part of its semantic governance capability stack".</p>
 {e}{cite('taudil')}
+<h2>6. IFA's seven-layer stack</h2>
+<p>TauGuard's IFA page sets out "seven layers forming the constitutional execution stack. Every action passes through each layer in sequence." It places SYGON at layer 2, AGL at layer 3 and IEL at layer 5, and says the chronicle "is written before action, not after".</p>
+{f7.render("IFA's constitutional stack.")}{cite('ifa')}
+<div class="prop-box"><p><strong>Two decision vocabularies.</strong> The governance page gives three outcomes: APPROVE, REVIEW, BLOCK. The IFA page describes AGL's admission as four: ALLOW, RESTRICT, DEFER, BLOCK. We use the governance page's three throughout this site and have not worked out how the two relate. TauGuard should say which is current.</p></div>
 <p>Not drawn here: the Governance Under Degradation states, G0 (integral) to G5 (recovery), on the governance page. We have not yet worked out what they mean for the workflows.</p>"""
     return page("/architecture/", "Their architecture, drawn", "Inline diagrams of TauGuard's governance flow, ARCHONT's six layers and execution seam, TauMesh's five deltas and TauDIL's flow, each with its source.", body, mark="Architecture")
 
@@ -355,6 +367,48 @@ def nxt():
     return page("/next/", "What next", "TauGuard's own path from introduction to scale, taken from its partners page, and where a Sovereign Website and RiskMandate proposal could fit.", body, mark="Next")
 
 
+
+def sources():
+    T = "https://tauguard.ai/"
+    rows = [
+     ["tauguard.ai/systems.html", "The systems and the one-company statement. Home (home.html) serves the same text.", "Read in full"],
+     ["tauguard.ai/governance.html", "The governance flow, three decisions, GOV-01 to GOV-06, the extensions (IFA, GOM, GUD, AGL, SFA, TauMesh), GUD states.", "Read in full"],
+     ["tauguard.ai/architecture.html", "ARCHONT's architecture, six layers, TauMesh, execution seam, TauStamp.", "Read in full"],
+     ["tauguard.ai/archon.html", "ARCHONT GOS, its flow, TauMesh deltas, the simulator.", "Read in full"],
+     ["tauguard.ai/taudil.html", "TauDIL GOS, its flow, SYGON's place in it, the interactive demo.", "Read in full"],
+     ["tauguard.ai/sygon.html", "SYGON's four steps and its deliberate boundary.", "Read in full, from its first section"],
+     ["tauguard.ai/frameworks.html", "The five frameworks and how they differ from products.", "Read in full"],
+     ["tauguard.ai/ifa.html", "IFA specification, the seven-layer stack, AGL's four-way admission.", "Read to the comparison table. The live dashboard figures at the end were not used."],
+     ["tauguard.ai/iel.html", "IEL Guard's claims and its three steps.", "Read to the use cases. Code samples and the pricing section were not used. No price appears on this site."],
+     ["tauguard.ai/rod.html", "ROD: gamified PC security, in development.", "Read in full"],
+     ["tauguard.ai/partners.html", "The commercial pathway and the opportunities.", "Read in full"],
+     ["tauguard.ai/about.html", "The company statement. It names people; this site names none of them.", "Read in full"],
+     ["tauguard.ai/robots.txt", "It allows crawling.", "Read"]]
+    notread = "tauguard.ai/sfa.html, gfa.html, agl.html, ala.html, industries.html, research_lab.html and contact.html were downloaded and not read. Nothing on this site relies on them beyond the names and one-line descriptions on the frameworks page."
+    rrows = [
+     ["riskmandate.ai/", "The summit figures, the ladder, the situations, what was not done.", "Read in full"],
+     ["riskmandate.ai/agent-behaviour-policy.html", "What an ABP is: grant, mandate, delta, barrier.", "Read to the list of capabilities. The sixteen example policies were not read."],
+     ["riskmandate.ai/secure-harness.html", "SHarness: what runs today and what is design only.", "Read to the animations. Not read beyond."],
+     ["web-summit.sgit.ai/abp/in-action/", "Reach, mandate, gap, barrier; the three barrier kinds; the rule that failed.", "Read the opening and the scoreboard"],
+     ["web-summit.sgit.ai/abp/", "The explorer phase: policies observe and block nothing yet.", "Read the opening"]]
+    notopened = "RiskMandate links the run reports, the stand deck, the counting notes and a GitHub run report as evidence for its figures. We did not open them. Its figures on this site are repeated as it states them."
+    def row(r, base):
+        u = base + r[0].split("/", 1)[1] if r[0].startswith("tauguard.ai") else "https://" + r[0]
+        if r[0].startswith("tauguard.ai"): u = "https://" + r[0]
+        return [f'<a href="{u}">{r[0]}</a>', r[1], r[2]]
+    body = f"""<h1>Sources</h1>
+<p class="lede">Every page we read, what we used it for, how much of it we read, and the date: {READ}.</p>
+<h2>TauGuard</h2>
+{table([row(r, T) for r in rows], ["Page", "Used for", "How much we read, on " + READ])}
+<p>{notread}</p>
+<h2>RiskMandate</h2>
+{table([row(r, "") for r in rrows], ["Page", "Used for", "How much we read, on " + READ])}
+<p>{notopened}</p>
+<h2>Not sources</h2>
+<p>Nothing from any meeting with TauGuard is on this site. The change chain in W2 is described as sites.a gave it. Every joint workflow, the MVP and the mapping on the side-by-side page are our proposals and say so.</p>"""
+    return page("/sources/", "Sources", "Every tauguard.ai and riskmandate.ai page this proposal draws on, what it was used for, how much was read and when.", body, mark="Sources")
+
+
 def designs_index():
     ds = [(1, "Paper", "The live design. One page per topic, a top bar, long-form reading with diagrams in the flow.", "Best for one answer at a time, and for printing or linking a single page. Weakest at showing the whole proposal at once."),
           (2, "Atlas", "The whole proposal on one scrolling page with a sticky index on the left.", "Best for seeing how the parts connect and for searching with the browser. Weakest on a phone, where the index folds away, and for linking to one topic."),
@@ -376,7 +430,7 @@ if __name__ == "__main__":
     os.makedirs(os.path.join(ROOT, "site", "assets"), exist_ok=True)
     open(os.path.join(ROOT, "site", "assets", "site.css"), "w").write(CSS)
     for path, fn in [("/", home), ("/tauguard/", tauguard), ("/architecture/", architecture), ("/riskmandate/", riskmandate), ("/together/", together),
-                     ("/workflows/", workflows), ("/mvp/", mvp), ("/next/", nxt), ("/designs/", designs_index)]:
+                     ("/workflows/", workflows), ("/mvp/", mvp), ("/next/", nxt), ("/designs/", designs_index), ("/sources/", sources)]:
         out = fn()
         if re.search("[—–]|&mdash;|&ndash;", out):
             raise SystemExit(f"dash in {path}")

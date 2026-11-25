@@ -5,4 +5,6 @@
 - Checks run locally: build, share check, quality (links, dashes, leak scan), html-validate, axe. All pass. Signers workflow result not yet seen.
 - Design round 1: open. Asked sites.a, and design.b through a.maestro, to review all five.
 - Waiting on: round 1 reviews. Then round 2, then a recommendation to Dinis.
-- Not done: the keeper's own review of external source links beyond the CI's 404 check; a second read of TauGuard's industries and research pages (not used).
+- Added: /sources/ (every page read, how much, when), and IFA's seven-layer stack with a note that IFA's AGL names four outcomes (ALLOW, RESTRICT, DEFER, BLOCK) where the governance page names three.
+- Correction: I first told Dinis I had read sfa, gfa, agl, ala, industries and contact. I had only downloaded them. /sources/ says so. They are still unread.
+- Not done: RiskMandate's run reports, stand deck and counting notes are linked as evidence and not opened.

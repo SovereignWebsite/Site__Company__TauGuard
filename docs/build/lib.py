@@ -93,6 +93,7 @@ def page(path, title, desc, body, mark="", css="/assets/site.css", extra_nav="")
 </main>
 <footer>
 <nav class="site-links" aria-label="About this site">
+  <a href="/sources/">Sources</a>
   <a href="/designs/">Design directions</a>
   <a href="/start/">Start here</a>
   <a href="/agents/">Use with your AI</a>
