@@ -1,7 +1,7 @@
 """Five structural design directions, built from the live pages' own content. Each is a prototype of the whole site on one page.
 Called from build.py after the live pages are written, so figure ids stay unique."""
 import os, re, html
-from lib import NAME, NOTICE, FAMILY, head
+from lib import NAME, NOTICE, FAMILY, head, picker
 from css1 import CSS as BASE
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -41,9 +41,10 @@ def shell(n, name, css, body, body_cls=""):
     return h + f"""<body class="{body_cls}">
 <a class="skip" href="#main">Skip to content</a>
 {FAMILY}
+{picker(n)}
 <header class="top">
   <a class="name" href="/designs/">Design directions</a>
-  <nav class="own" aria-label="Designs">{''.join(f'<a href="/designs/{i}/"{" aria-current=\"page\"" if i == n else ""}>{i}</a>' for i in range(1, 6))}<a href="/">Live site</a></nav>
+  <nav class="own" aria-label="Designs"><a href="/designs/">All five</a><a href="/">Live site</a></nav>
   <p class="notice" role="note">{NOTICE} <span class="dn">Design {n} of 5: {name}.</span></p>
 </header>
 <main id="main">

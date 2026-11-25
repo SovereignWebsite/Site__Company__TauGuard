@@ -82,6 +82,7 @@ def page(path, title, desc, body, mark="", css="/assets/site.css", extra_nav="")
     return head(title, desc, path, css) + f"""<body>
 <a class="skip" href="#main">Skip to content</a>
 {FAMILY}
+{picker(1)}
 <header class="top">
   <a class="name" href="/">{NAME}</a>
   <nav class="own" aria-label="This site">{nav}</nav>
@@ -190,6 +191,40 @@ def table(rows, head_cells, cls="tbl"):
     th = "".join(f"<th scope=\"col\">{c}</th>" for c in head_cells)
     tr = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows)
     return f'<div class="tw" tabindex="0" role="region" aria-label="Table {_T[0]}. On a narrow screen it scrolls sideways."><table class="{cls}"><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table></div>'
+
+
+
+
+# ---------- the design picker: shown at the top of every page until the owner picks a design ----------
+PICKER_ON = True
+_R = lambda x, y, w, h, c: f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="2" class="{c}"/>'
+THUMBS = {
+    1: "".join([_R(1, 1, 118, 74, "tp-bg"), _R(6, 6, 108, 5, "tp-fg"), _R(6, 16, 62, 7, "tp-ac"), _R(6, 28, 100, 3, "tp-fg"), _R(6, 34, 88, 3, "tp-fg"),
+                _R(6, 42, 52, 26, "tp-tg"), _R(62, 42, 52, 26, "tp-rm")]),
+    2: "".join([_R(1, 1, 118, 74, "tp-bg"), _R(6, 6, 24, 64, "tp-tg")] + [_R(9, 12 + i * 9, 18, 3, "tp-fg") for i in range(5)] +
+               [_R(36, 6, 78, 10, "tp-ac"), _R(36, 20, 78, 22, "tp-fg"), _R(36, 46, 78, 10, "tp-fg"), _R(36, 60, 78, 10, "tp-fg")]),
+    3: "".join([_R(1, 1, 118, 74, "tp-bg"), _R(6, 6, 52, 64, "tp-tg"), _R(62, 6, 52, 64, "tp-rm"), '<rect x="58" y="4" width="4" height="68" class="tp-bd"/>'] +
+               [_R(10, 14 + i * 9, 40, 3, "tp-fg") for i in range(5)] + [_R(66, 14 + i * 9, 40, 3, "tp-fg") for i in range(5)]),
+    4: "".join([_R(1, 1, 118, 74, "tp-bg"), _R(6, 6, 70, 7, "tp-ac"), _R(6, 18, 100, 3, "tp-fg")] +
+               [_R(6 + i * 18, 27, 16, 8, "tp-ac" if i == 0 else "tp-tg") for i in range(6)] + [_R(6, 38, 108, 32, "tp-fg")]),
+    5: "".join(['<rect x="1" y="1" width="118" height="74" rx="2" class="tp-dk"/>'] + [f'<line x1="{x}" y1="1" x2="{x}" y2="75" class="tp-gr"/>' for x in range(13, 120, 12)] +
+               [f'<line x1="1" y1="{y}" x2="119" y2="{y}" class="tp-gr"/>' for y in range(13, 76, 12)] +
+               [f'<rect x="{6 + i * 28}" y="6" width="24" height="10" class="tp-tl"/>' for i in range(4)] + ['<rect x="6" y="22" width="108" height="48" class="tp-sh"/>']),
+}
+DESIGNS = [(1, "Paper", "One page per topic"), (2, "Atlas", "All on one scroll"), (3, "Ledger", "Two columns"), (4, "Briefing", "Tabs, one topic at a time"), (5, "Blueprint", "Drawn like sheets")]
+
+
+def picker(current=1):
+    if not PICKER_ON:
+        return ""
+    items = []
+    for n, name, note in DESIGNS:
+        cur = ' aria-current="page"' if n == current else ""
+        tag = "Live now" if n == 1 else "Preview"
+        items.append(f'<li><a href="/designs/{n}/"{cur}><svg viewBox="0 0 120 76" aria-hidden="true" focusable="false">{THUMBS[n]}</svg>'
+                     f'<span class="pn"><strong>{n} {name}</strong> <span class="pt">{tag}</span></span><span class="pd">{note}</span></a></li>')
+    return (f'<nav class="picker" aria-label="Choose a design"><p class="ph"><strong>Choose a design.</strong> The owner has not picked yet; every page uses design 1 until then. '
+            f'<a href="/designs/">About the five</a></p><ul>{"".join(items)}</ul></nav>')
 
 
 PROPOSAL = '<span class="tag prop">Proposal</span>'

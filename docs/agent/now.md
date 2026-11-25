@@ -10,3 +10,5 @@
 - Not done: RiskMandate's run reports, stand deck and counting notes are linked as evidence and not opened.
 
 - a.design round 2 verdict (b6dbf89): all eight items verified, recommends 4 Briefing to Dinis, no round 3 for the choice. Small items done: swipe cue on diagrams. Notice: the mandatory sentence needs three lines at a readable phone size, so not two. Left for after Dinis picks: design Briefing's own live header; the numbered design switcher stays under /designs/ only and must never reach the live pages.
+
+- Dinis (via sites.a, 25 Nov 01:42): the 'Choose a design' picker with previews of all five goes at the top of every page until he picks. Built: CSS-only strip of five wireframe thumbnails, on every live page and every prototype. When he picks: set PICKER_ON = False in docs/build/lib.py, switch the live site to the chosen design, and rebuild.

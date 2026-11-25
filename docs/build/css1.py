@@ -46,6 +46,14 @@ footer{max-width:60rem;margin:3rem auto 0;padding:1rem 1rem 0;border-top:1px sol
 .tw{overflow-x:auto;margin:1rem 0}table{border-collapse:collapse;width:100%;font-size:.95rem}
 th,td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top;color:var(--fg)}th{background:var(--panel)}
 .fig{margin:1.5rem 0;overflow-x:auto}.fig:focus-visible,.tw:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.picker{max-width:60rem;margin:0 auto;padding:2rem 1rem 0}.picker .ph{margin:0 0 .5rem;font-size:.9rem;color:var(--fg)}
+.picker ul{list-style:none;margin:0;padding:.2rem .1rem .5rem;display:flex;gap:.7rem;overflow-x:auto}
+.picker li{flex:0 0 9rem;margin:0}.picker li a{display:block;text-decoration:none;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:.4rem;background:var(--panel);height:100%}
+.picker li a:hover,.picker li a:focus-visible{border-color:var(--accent);outline:2px solid var(--accent);outline-offset:1px}.picker li a[aria-current=page]{border:2px solid var(--accent)}
+.picker svg{width:100%;height:auto;display:block;margin-bottom:.3rem}.picker .pn{display:block;font-size:.85rem;line-height:1.3}.picker .pt{font-size:.7rem;color:var(--muted);font-weight:600}
+.picker .pd{display:block;font-size:.75rem;color:var(--muted);line-height:1.3}
+.tp-bg{fill:var(--bg);stroke:var(--line);stroke-width:1}.tp-fg{fill:var(--line)}.tp-ac{fill:var(--accent)}.tp-tg{fill:var(--tg-bg);stroke:var(--tg);stroke-width:1}.tp-rm{fill:var(--rm-bg);stroke:var(--rm);stroke-width:1}.tp-bd{fill:var(--warn)}
+.tp-dk{fill:#17181a;stroke:#3a3d42}.tp-gr{stroke:#2c2f33;stroke-width:.6}.tp-tl{fill:#212326;stroke:#f4f4f4;stroke-width:.8}.tp-sh{fill:none;stroke:#f4f4f4;stroke-width:1}
 .swipe{display:none;margin:.2rem 0 .3rem;font-size:.8rem;color:var(--muted)}
 @media (max-width:48rem){.fig svg{min-width:760px}.swipe{display:block}}.fig svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
 .fig figcaption{font-size:.85rem;color:var(--muted);margin-top:.4rem}
