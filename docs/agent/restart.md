@@ -8,3 +8,4 @@
 6. Sources were read on 24 Nov 2026. Re-read before changing a claim, and change the read date with it.
 7. The design picker (lib.py picker(), PICKER_ON) shows on every page until the owner picks a design. Remove it, by setting PICKER_ON = False, only when Dinis has picked.
 8. Run bash tools/check.sh before every push.
+9. Stylesheet links carry ?v=<content hash> (lib.CSS_VERSIONS), set by build.py and designs.py. Keep that: a changed stylesheet at the same address is otherwise served from old caches.

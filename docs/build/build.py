@@ -429,6 +429,8 @@ def designs_index():
 if __name__ == "__main__":
     os.makedirs(os.path.join(ROOT, "site", "assets"), exist_ok=True)
     open(os.path.join(ROOT, "site", "assets", "site.css"), "w").write(CSS)
+    import hashlib, lib
+    lib.CSS_VERSIONS["/assets/site.css"] = hashlib.sha256(CSS.encode()).hexdigest()[:8]
     for path, fn in [("/", home), ("/tauguard/", tauguard), ("/architecture/", architecture), ("/riskmandate/", riskmandate), ("/together/", together),
                      ("/workflows/", workflows), ("/mvp/", mvp), ("/next/", nxt), ("/designs/", designs_index), ("/sources/", sources)]:
         out = fn()

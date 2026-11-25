@@ -43,6 +43,9 @@ def rcite(url, label):
     return f'<span class="src">Source: <a href="{url}">{label}</a>, read {READ}.</span>'
 
 
+CSS_VERSIONS = {}  # stylesheet path -> short content hash, so a changed stylesheet is never served from an old cache
+
+
 def head(title, desc, path, css="/assets/site.css"):
     full = f"{title}: {NAME}" if title else NAME
     u = f"{SITE}{path}"
@@ -71,7 +74,7 @@ def head(title, desc, path, css="/assets/site.css"):
 <meta name="twitter:description" content="{e(desc)}">
 <meta name="twitter:image" content="{img}">
 <link rel="canonical" href="{u}">
-<link rel="stylesheet" href="{css}">
+<link rel="stylesheet" href="{css}{("?v=" + CSS_VERSIONS[css]) if css in CSS_VERSIONS else ""}">
 </head>
 """
 
@@ -221,7 +224,7 @@ def picker(current=1):
     for n, name, note in DESIGNS:
         cur = ' aria-current="page"' if n == current else ""
         tag = "Live now" if n == 1 else "Preview"
-        items.append(f'<li><a href="/designs/{n}/"{cur}><svg viewBox="0 0 120 76" aria-hidden="true" focusable="false">{THUMBS[n]}</svg>'
+        items.append(f'<li><a href="/designs/{n}/"{cur}><svg viewBox="0 0 120 76" width="120" height="76" aria-hidden="true" focusable="false"><g fill="#e4e1d8">{THUMBS[n]}</g></svg>'
                      f'<span class="pn"><strong>{n} {name}</strong> <span class="pt">{tag}</span></span><span class="pd">{note}</span></a></li>')
     return (f'<nav class="picker" aria-label="Choose a design"><p class="ph"><strong>Choose a design.</strong> The owner has not picked yet; every page uses design 1 until then. '
             f'<a href="/designs/">About the five</a></p><ul>{"".join(items)}</ul></nav>')

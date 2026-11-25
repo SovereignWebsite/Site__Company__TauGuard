@@ -1,7 +1,7 @@
 """Five structural design directions, built from the live pages' own content. Each is a prototype of the whole site on one page.
 Called from build.py after the live pages are written, so figure ids stay unique."""
-import os, re, html
-from lib import NAME, NOTICE, FAMILY, head, picker
+import os, re, html, hashlib
+from lib import NAME, NOTICE, FAMILY, head, picker, CSS_VERSIONS
 from css1 import CSS as BASE
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -179,7 +179,9 @@ def build_designs():
     for n, (name, css, body, cls) in out.items():
         d = os.path.join(ROOT, "site", "designs", str(n))
         os.makedirs(d, exist_ok=True)
-        open(os.path.join(d, "style.css"), "w").write(BASE + "\n" + css + "\n")
+        full_css = BASE + "\n" + css + "\n"
+        open(os.path.join(d, "style.css"), "w").write(full_css)
+        CSS_VERSIONS[f"/designs/{n}/style.css"] = hashlib.sha256(full_css.encode()).hexdigest()[:8]
         page = shell(n, name, css, body, cls)
         if re.search("[—–]", page):
             raise SystemExit(f"dash in design {n}")
@@ -187,6 +189,8 @@ def build_designs():
         print("wrote design", n, len(page))
     # design 1 prototype page (the live design)
     d = os.path.join(ROOT, "site", "designs", "1"); os.makedirs(d, exist_ok=True)
-    open(os.path.join(d, "style.css"), "w").write(BASE + "\n" + COMMON + "\n")
+    css1 = BASE + "\n" + COMMON + "\n"
+    open(os.path.join(d, "style.css"), "w").write(css1)
+    CSS_VERSIONS["/designs/1/style.css"] = hashlib.sha256(css1.encode()).hexdigest()[:8]
     open(os.path.join(d, "index.html"), "w").write(shell(1, "Paper (the live design)", "", d1(), ""))
     return out
