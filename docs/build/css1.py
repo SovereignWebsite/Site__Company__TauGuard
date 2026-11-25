@@ -56,7 +56,7 @@ svg .zt rect{fill:none;stroke:var(--muted);stroke-width:1;stroke-dasharray:4 4}s
 svg .ar{stroke:var(--muted);stroke-width:1.8}svg .ahp{fill:var(--muted)}svg .bd{stroke:var(--warn);stroke-width:3}
 svg .dash{stroke:var(--muted);stroke-width:1.4;stroke-dasharray:5 4}
 ol.steps{padding-left:1.2rem}ol.steps li{margin:.4rem 0}
-code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
+footer a,footer p{overflow-wrap:anywhere}code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
 .cols{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
 @media (max-width:599px){footer,.family-credit,.site-links{font-size:15px}.notice{font-size:15px}}
 """

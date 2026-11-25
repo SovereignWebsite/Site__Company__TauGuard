@@ -300,7 +300,7 @@ def workflows():
 {w1}
 <p>What we know: TauGuard's governance page describes constitutional predicates, the three decisions and the Chronicle. RiskMandate's ABP lists the mandate row by row. What we do not know: whether a mandate row can be written as a predicate the core accepts, and how an outside agent's call reaches the core.</p>{cite('governance')}
 <h2>W2. The Sovereign Website change chain under ARCHONT</h2>
-{prop("The chain a site change goes through, as sites.a described it on 24 Nov 2026: brief, sites review, Factory request, security, decision, merge. ARCHONT would hold each step as governed state. TauStamp would keep the lineage. Our provenance graph would be the evidence feed.")}
+{prop("The Sovereign Website change chain (R4): brief, sites review, Factory request, security, decision, merge. Our public provenance is on <a href='/agents/'>the agents page</a>. ARCHONT would hold each step as governed state. TauStamp would keep the lineage. Our provenance graph would be the evidence feed.")}
 {w2.render("W2 as proposed.")}
 <p>What we know: ARCHONT is described as maintaining governed state and TauStamp as preserving "governed lineage so that legitimacy can be reconstructed". What we do not know: how evidence from outside gets into ARCHONT, or whether the simulator TauGuard publishes can take it.</p>{cite('archon')}
 <h2>W3. PrompTugal News under TauDIL and SYGON</h2>
@@ -361,7 +361,7 @@ def nxt():
 <p>The page names six kinds of contact, though it introduces them as "five ways": investors, sales channels, independent sales professionals, pilot deployment companies, strategic partners and enterprise evaluators.</p>
 <h2>Where we could fit</h2>
 {prop("We are not investors or sellers. The nearest fits are the enterprise evaluator and the strategic partner, and then, if TauGuard wished, a small pilot.")}
-{table([["Introduce", "This site is a way in: it shows we have read the pages and what we would like to test. sites.a reviews it before TauGuard sees it."], ["Evaluate", "The architecture drawings on this site are an outside reading of its design. We would like TauGuard to correct them."], ["Pilot", "The MVP is smaller than a pilot. It could be a first step toward one."], ["Validate", "The measures on the MVP page are ours to propose. TauGuard would decide what counts as evidence."], ["Scale", "Not for us to say."]], ["TauGuard's step", "Where we could fit (a proposal)"])}
+{table([["Introduce", "This site is a way in: it shows we have read the pages and what we would like to test. The Sovereign Website team reviews it before TauGuard sees it."], ["Evaluate", "The architecture drawings on this site are an outside reading of its design. We would like TauGuard to correct them."], ["Pilot", "The MVP is smaller than a pilot. It could be a first step toward one."], ["Validate", "The measures on the MVP page are ours to propose. TauGuard would decide what counts as evidence."], ["Scale", "Not for us to say."]], ["TauGuard's step", "Where we could fit (a proposal)"])}
 <h2>What happens now</h2>
 <p>Dinis Cruz decides whether and when this site is shown to TauGuard, and what from any meeting goes into it. Until TauGuard agrees, no TauGuard person is named here and no TauGuard branding is used.</p>"""
     return page("/next/", "What next", "TauGuard's own path from introduction to scale, taken from its partners page, and where a Sovereign Website and RiskMandate proposal could fit.", body, mark="Next")
@@ -405,7 +405,7 @@ def sources():
 {table([row(r, "") for r in rrows], ["Page", "Used for", "How much we read, on " + READ])}
 <p>{notopened}</p>
 <h2>Not sources</h2>
-<p>Nothing from any meeting with TauGuard is on this site. The change chain in W2 is described as sites.a gave it. Every joint workflow, the MVP and the mapping on the side-by-side page are our proposals and say so.</p>"""
+<p>Nothing from any meeting with TauGuard is on this site. The change chain in W2 is the Sovereign Website team's own chain (R4). Every joint workflow, the MVP and the mapping on the side-by-side page are our proposals and say so.</p>"""
     return page("/sources/", "Sources", "Every tauguard.ai and riskmandate.ai page this proposal draws on, what it was used for, how much was read and when.", body, mark="Sources")
 
 
@@ -418,7 +418,7 @@ def designs_index():
     cards = "".join(f'<div class="card both"><span class="tag okt">{"Live now" if n == 1 else "Prototype"}</span><h2>{n}. {nme}</h2><p>{d}</p><p>{c}</p><p><a href="/designs/{n}/">Open design {n}</a></p></div>' for n, nme, d, c in ds)
     body = f"""<h1>Design directions</h1>
 <p class="lede">Five structural directions for this site. They differ in how the content is arranged and navigated, not only in colour. Every prototype carries the same content as the live pages.</p>
-<p>The live pages stay on design 1 until the owner picks. Review round 1 is open: sites.a and design.b (through a.maestro) are asked to look at all five. A recommendation follows the second round.</p>
+<p>The live pages stay on design 1 until the owner picks. Review round 1 is open: the Sovereign Website sites team and its design reviewer are asked to look at all five. A recommendation follows the second round.</p>
 <div class="grid">{cards}</div>
 <h2>What each review looks at</h2>
 <ul><li>Does the structure make the proposal easier or harder to take in?</li><li>Do the diagrams stay legible on a phone?</li><li>Is the "not TauGuard's own site" notice still plain?</li><li>Does it avoid copying TauGuard's look, logo or branding?</li><li>Does it pass the pipeline's accessibility and validity checks?</li></ul>
