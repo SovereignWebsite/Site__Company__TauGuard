@@ -44,7 +44,7 @@ def shell(n, name, css, body, body_cls=""):
 <header class="top">
   <a class="name" href="/designs/">Design directions</a>
   <nav class="own" aria-label="Designs">{''.join(f'<a href="/designs/{i}/"{" aria-current=\"page\"" if i == n else ""}>{i}</a>' for i in range(1, 6))}<a href="/">Live site</a></nav>
-  <p class="notice" role="note">{NOTICE} <span class="dn">Design {n} of 5: {name}. A prototype, not TauGuard's design.</span></p>
+  <p class="notice" role="note">{NOTICE} <span class="dn">Design {n} of 5: {name}.</span></p>
 </header>
 <main id="main">
 {body}
@@ -60,7 +60,7 @@ def shell(n, name, css, body, body_cls=""):
 
 # ---------------------------------------------------------------- design-specific CSS (appended to the shared base)
 COMMON = """.notice .dn{display:block;color:var(--muted);font-size:.85em;margin-top:.15rem}
-@media (max-width:40rem){.notice{padding:.4rem .7rem;font-size:14px}.notice .dn{display:inline;margin-left:.3rem}}
+@media (max-width:40rem){.notice{padding:.3rem .6rem;font-size:14px;line-height:1.35}.notice .dn{display:inline;margin-left:.3rem}}
 section.sec{scroll-margin-top:1rem}"""
 
 CSS2 = COMMON + """

@@ -160,7 +160,7 @@ class Svg:
         svg = (f'<svg viewBox="0 0 {self.w} {self.h}" role="img" aria-labelledby="t{self.n} d{self.n}" xmlns="http://www.w3.org/2000/svg">'
                f'<title id="t{self.n}">{html.escape(self.title)}</title><desc id="d{self.n}">{html.escape(self.desc)}</desc>{defs}{"".join(self.parts)}</svg>')
         cap = f"<figcaption>{caption}</figcaption>" if caption else ""
-        return f'<figure class="fig" tabindex="0" aria-label="{html.escape(self.title)}. On a narrow screen this diagram scrolls sideways.">{svg}{cap}</figure>'
+        return f'<figure class="fig" tabindex="0" aria-label="{html.escape(self.title)}. On a narrow screen this diagram scrolls sideways."><p class="swipe" aria-hidden="true">Swipe to see the whole drawing</p>{svg}{cap}</figure>'
 
 
 def flow(title, desc, steps, cls_for=None, w=900, size=12, caption="", h=None):
